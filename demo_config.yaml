@@ -1,0 +1,82 @@
+# Demonstration Configuration for Biomedical Agent Framework
+# This simulates real biomcp and alphagenome integrations
+
+agent:
+  model_provider: "ollama"
+  model_name: "llama3.1:latest"
+  temperature: 0.7
+  max_tokens: 3000
+  context_window: 8000
+
+# Research-focused server selection
+enabled_servers:
+  - "biomcp-pubmed"
+  - "biomcp-uniprot" 
+  - "biomcp-string"
+  - "alphagenome-structure"
+  - "biomcp-microbiome"
+
+mcp_servers:
+  # Literature and knowledge servers
+  biomcp-pubmed:
+    name: "BioMCP PubMed Literature Server"
+    endpoint: "http://localhost:8001"
+    description: "Access to PubMed database for literature search and hypothesis generation"
+    
+  biomcp-uniprot:
+    name: "BioMCP UniProt Protein Server"  
+    endpoint: "http://localhost:8002"
+    description: "Protein sequence, structure and functional annotation database"
+    
+  biomcp-string:
+    name: "BioMCP STRING Protein Interactions"
+    endpoint: "http://localhost:8003"
+    description: "Protein-protein interaction networks and pathway analysis"
+    
+  # AlphaGenome integration for structural predictions
+  alphagenome-structure:
+    name: "AlphaGenome Structural Predictions"
+    endpoint: "ws://localhost:8004"
+    description: "AI-powered protein structure predictions and genomic variant analysis"
+    
+  # Microbiome-specific databases
+  biomcp-microbiome:
+    name: "BioMCP Microbiome Database"
+    endpoint: "http://localhost:8005"
+    description: "Gut microbiome composition analysis and host-microbe interactions"
+    
+  # Additional specialized servers
+  biomcp-gwas:
+    name: "BioMCP GWAS Catalog"
+    endpoint: "http://localhost:8006"
+    description: "Genome-wide association studies and genetic variant databases"
+
+# Research context for Parkinson's-microbiome study
+research_context:
+  domain: "neuroscience"
+  organism: "human"
+  research_question: "How does gut microbiome composition influence Parkinson's disease progression?"
+  keywords:
+    - "Parkinson's disease"
+    - "gut microbiome"
+    - "gut-brain axis"
+    - "neuroinflammation"
+    - "alpha-synuclein"
+    - "microbiota"
+    - "SCFA"
+    - "dopamine"
+
+# Enhanced session and tool settings
+session:
+  auto_save: true
+  max_history: 2000
+  export_format: "markdown"
+
+tools:
+  timeout: 180
+  max_concurrent: 5
+  retry_attempts: 3
+
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"

@@ -1,0 +1,73 @@
+# Biomedical Agent Framework Configuration
+
+# Agent configuration 
+agent:
+  model_provider: "ollama"  # ollama, openai, anthropic
+  model_name: "llama3.1"
+  temperature: 0.7
+  max_tokens: 2000
+  context_window: 4000
+  system_prompt: null  # Use default if null
+
+# Enabled MCP servers
+enabled_servers:
+  - "biomcp-pubmed"
+  - "biomcp-uniprot"
+  - "biomcp-chembl"
+
+# MCP server configurations
+mcp_servers:
+  biomcp-pubmed:
+    name: "BioMCP PubMed Server"
+    endpoint: "http://localhost:8001"
+    description: "Access to PubMed literature database for biomedical research"
+    
+  biomcp-uniprot:
+    name: "BioMCP UniProt Server"
+    endpoint: "http://localhost:8002"
+    description: "Protein sequence and functional annotation database"
+    
+  biomcp-chembl:
+    name: "BioMCP ChEMBL Server"
+    endpoint: "http://localhost:8003"
+    description: "Chemical and bioactivity database for drug discovery"
+    
+  biomcp-ensembl:
+    name: "BioMCP Ensembl Server"
+    endpoint: "ws://localhost:8004"
+    description: "Genomic annotations and comparative genomics"
+    
+  ollama-tools:
+    name: "Ollama Tools Server"
+    endpoint: "ws://localhost:8005"
+    description: "Local Ollama-based computational tools"
+
+# Default research context
+research_context:
+  domain: "genomics"  # genomics, proteomics, drug_discovery, clinical, etc.
+  organism: "human"
+  dataset: null
+  research_question: null
+  keywords:
+    - "gene expression"
+    - "GWAS"
+    - "variant analysis"
+    - "biomarkers"
+
+# Logging configuration
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: null  # Log file path, null for console only
+
+# Session management
+session:
+  auto_save: true
+  max_history: 1000  # Maximum messages to keep in history
+  export_format: "json"  # json, markdown
+
+# Tool execution settings
+tools:
+  timeout: 180  # Timeout in seconds for tool calls
+  max_concurrent: 3  # Maximum concurrent tool executions
+  retry_attempts: 2
