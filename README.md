@@ -1,4 +1,4 @@
-# Biomedical Agent Framework 🧬
+# GENESIS
 
 A Python agentic framework for advancing biomedical research using tools like Ollama, BioMCP, and other MCP (Model Context Protocol) servers. This framework facilitates the creation of interactive systems that utilize multiple MCP tools from various sources to assist researchers in their biomedical investigations.
 
@@ -252,10 +252,10 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 If you use this framework in your research, please cite:
 
 ```bibtex
-@software{biomedical_agent_framework,
-  title={Biomedical Agent Framework: Interactive Research Assistant with MCP Integration},
-  author={Your Name},
-  year={2024},
-  url={https://github.com/yourusername/biomedical-agent-framework}
+@software{GENESIS,
+  title={GENESIS: An agentic framework for advancing biomedical research with MCP Integration},
+  author={Madduri et al.},
+  year={2025},
+  url={https://github.com/madduri/genesis}
 }
 ```
